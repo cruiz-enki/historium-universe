@@ -1,4 +1,3 @@
-# Principios
 # HISTORIUM — PRINCIPIOS EDITORIALES
 
 **Versión:** 1.0  

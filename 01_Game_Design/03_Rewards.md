@@ -1,4 +1,3 @@
-# Rewards
 # HISTORIUM — SISTEMA DE RECOMPENSAS
 
 **Versión:** 1.0

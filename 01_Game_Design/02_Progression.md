@@ -1,4 +1,3 @@
-# Progression
 # HISTORIUM — SISTEMA DE PROGRESIÓN
 
 **Versión:** 1.0

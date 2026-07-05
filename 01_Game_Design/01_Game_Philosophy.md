@@ -1,4 +1,3 @@
-# Game Philosophy
 # HISTORIUM — FILOSOFÍA DEL JUEGO
 
 **Versión:** 1.0  
