@@ -21,6 +21,8 @@ Debe respetar los formatos de salida definidos en `../10_AI/`, especialmente:
 - `10_Entity_Extraction_Rules.md`
 - `11_Relationship_Extraction_Rules.md`
 
+También debe integrarse con `../11_Historium_Compiler/`, que define cómo el Canon se ensambla, valida, publica en GitHub y prepara para Supabase.
+
 ---
 
 # Principios

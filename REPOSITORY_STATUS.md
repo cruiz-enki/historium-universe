@@ -77,6 +77,7 @@ Historium-Universe/
   08_Templates/
   09_Architecture/
   10_AI/
+  11_Historium_Compiler/
 ```
 
 ---
@@ -88,6 +89,16 @@ Historium-Universe/
 - Incluye reglas de extracción de entidades y relaciones para respetar `REGISTRY.yaml` y `RELATIONSHIP_TYPES.md`.
 - Define formato Markdown, validación, localización, prohibiciones, roles de modelos y producción en lote.
 - La IA queda subordinada al Canon Oficial, al Knowledge Graph, al Museo Vivo y a revisión humana.
+
+---
+
+# Fase Historium Compiler
+
+- `11_Historium_Compiler/` quedó creada como capa oficial para compilar Canon hacia contenido jugable.
+- Define filosofía, arquitectura, orquestador de agentes, ensamblado de contexto, compilación de prompts y workflows.
+- Documenta validación, revisión humana, publicación en GitHub, publicación conceptual a Supabase y QA.
+- Incluye estrategia de producción en lote, optimización de costos, estrategia de modelos y roadmap de automatización.
+- El nombre oficial es `11_Historium_Compiler`; no se usa `11_Production_Engine`.
 
 ---
 

@@ -49,6 +49,7 @@ Es un universo persistente donde cada campaña cuenta una historia y cada entida
 - `08_Templates/` — plantillas oficiales de producción.
 - `09_Architecture/` — arquitectura del Knowledge Graph, IDs, importer, Supabase y Museo.
 - `10_AI/` — reglas para generación, validación, prompts, assets y workflows de IA.
+- `11_Historium_Compiler/` — arquitectura del motor que compila Canon, contexto, prompts, Markdown, GitHub y Supabase.
 
 ---
 
