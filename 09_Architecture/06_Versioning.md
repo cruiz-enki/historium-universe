@@ -16,62 +16,78 @@ El Canon también.
 
 ---
 
-# Formato
+# Formato oficial
 
-Historium usa versionado semántico:
-
-```text
-MAJOR.MINOR.PATCH
-```
-
-Ejemplo:
+Historium usa versiones con prefijo `v`.
 
 ```text
-1.0.0
+v1.0
+v1.1
+v1.2
+v2.0
 ```
+
+En frontmatter puede guardarse sin `v` si el importer lo requiere.
+
+El documento visible debe mostrar la versión editorial con `v`.
 
 ---
 
-# PATCH
+# v1.0 — creación oficial
 
-Cambios menores.
+Primera versión aprobada de una pieza.
+
+Significa:
+
+- tiene ID,
+- tiene frontmatter válido,
+- tiene contenido suficiente,
+- tiene relación con el Museo,
+- puede considerarse Canon Oficial.
+
+---
+
+# v1.1 — correcciones menores
+
+Correcciones que no cambian estructura ni interpretación.
 
 Ejemplos:
 
-- corrección ortográfica,
-- ajuste de frase,
-- mejora de claridad,
-- corrección de enlace.
-
-No cambia estructura ni interpretación.
+- ortografía,
+- claridad,
+- enlaces,
+- formato,
+- precisión menor.
 
 ---
 
-# MINOR
+# v1.2 — expansión menor
 
-Expansión compatible.
+Agrega contenido compatible.
 
 Ejemplos:
 
 - nueva relación,
-- nuevo asset,
+- nueva fuente,
 - nueva curiosidad,
-- nuevo desbloqueo de Museo,
-- ampliación de contexto.
+- nuevo asset,
+- nueva sección del Museo,
+- conexión con campaña nueva.
 
 ---
 
-# MAJOR
+# v2.0 — reestructuración mayor
 
 Cambio estructural o interpretativo.
 
 Ejemplos:
 
-- cambio de tipo de entidad,
-- reescritura profunda,
+- cambio de tipo,
 - fusión de entidades,
-- cambio de modelo de datos,
-- cambio de relación central.
+- reescritura profunda,
+- cambio de modelo de Museo,
+- reemplazo de relaciones centrales,
+- cambio que requiere migración en Supabase.
 
 ---
 
@@ -80,35 +96,26 @@ Ejemplos:
 El ID no cambia con la versión.
 
 ```text
-CHAR_000001 v1.0.0
-CHAR_000001 v1.1.0
-CHAR_000001 v2.0.0
+CHAR_000001 v1.0
+CHAR_000001 v1.1
+CHAR_000001 v1.2
+CHAR_000001 v2.0
 ```
 
 Sigue siendo la misma entidad.
 
 ---
 
-# Changelog editorial
+# Changelog obligatorio
 
-Todo cambio `MINOR` o `MAJOR` debe explicar:
+Todo cambio `v1.2` o `v2.0` debe explicar:
 
 - qué cambió,
 - por qué cambió,
-- quién lo aprobó,
 - impacto en Museo,
 - impacto en relaciones,
-- impacto en importer.
-
----
-
-# Supabase
-
-Supabase puede guardar la versión importada.
-
-Esto permite saber qué versión del Canon vio cada jugador.
-
-El progreso del usuario no cambia la versión canon.
+- impacto en importer,
+- impacto en Supabase.
 
 ---
 

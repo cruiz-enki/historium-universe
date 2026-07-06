@@ -8,13 +8,11 @@
 
 # Propósito
 
-Este documento define cómo se nombran archivos, carpetas, entidades y campos dentro del Canon Oficial de Historium.
+Este documento define cómo se nombran carpetas, archivos, slugs, IDs y campos dentro del Canon Oficial de Historium.
 
-Los nombres humanos pueden ser elegantes.
+Los nombres visibles pueden cambiar.
 
-Los nombres técnicos deben ser estables.
-
-Historium necesita ambos.
+Los nombres técnicos deben permanecer estables.
 
 ---
 
@@ -24,13 +22,17 @@ El nombre visible sirve al jugador.
 
 El nombre técnico sirve al sistema.
 
+El ID sirve al Canon.
+
 Nunca deben confundirse.
 
 ---
 
-# Carpetas
+# Carpetas principales
 
-Las carpetas principales usan numeración de dos dígitos y Pascal/Snake mixto legible:
+Las carpetas numeradas se usan solo para secciones principales del repositorio.
+
+Ejemplos:
 
 ```text
 00_Biblia_Editorial/
@@ -40,68 +42,100 @@ Las carpetas principales usan numeración de dos dígitos y Pascal/Snake mixto l
 09_Architecture/
 ```
 
-Las carpetas de taxonomía usan singular conceptual en inglés pluralizado:
+No crear carpetas numeradas dentro de galerías de entidades.
+
+---
+
+# Carpetas de entidades
+
+Las carpetas de entidades usan PascalCase plural.
+
+Correcto:
 
 ```text
 Characters/
 Cities/
-Civilizations/
+Battles/
+Concepts/
 Artifacts/
+Documents/
+```
+
+Incorrecto:
+
+```text
+characters/
+03_Characters/
+historical-characters/
+Personajes/
 ```
 
 ---
 
-# Archivos
+# Archivos de entidades
 
-Los documentos de arquitectura usan prefijo numérico:
-
-```text
-04_Knowledge_Graph.md
-```
-
-Los specs usan sufijo `_Spec.md`:
+Los archivos de entidades usan:
 
 ```text
-03_Node_Spec.md
-14_Technology_Spec.md
+ID_EnglishName.md
 ```
-
-Las plantillas usan sufijo `_Template.md`:
-
-```text
-Node_Template.md
-Character_Template.md
-```
-
----
-
-# Entidades
-
-El nombre visible de una entidad puede usar acentos, espacios y nombre histórico correcto.
 
 Ejemplo:
 
 ```text
-Pisístrato
-Alejandría
-Imperio aqueménida
+CHAR_000001_Pisistratus.md
+CITY_000001_Athens.md
+BAT_000001_Marathon.md
 ```
 
-El slug técnico debe usar minúsculas, ASCII y guiones bajos:
+Reglas:
+
+- Sin acentos.
+- Sin espacios.
+- Sin caracteres especiales.
+- Sin signos de puntuación.
+- Nombre en inglés para estabilidad técnica.
+- PascalCase después del ID.
+
+---
+
+# Archivos de campaña
+
+Las campañas usan:
 
 ```text
-pisistratus
-alexandria
-achaemenid_empire
+CAMP_000001_GreeceClassical.md
 ```
 
-El ID canónico siempre viene del Registry:
+Los nodos usan:
 
 ```text
-CHAR_000001
-CITY_000001
-EMP_000001
+NODE_000001_BirthOfThePolis.md
 ```
+
+Los capítulos usan:
+
+```text
+CH_000001_AthensBeforeDemocracy.md
+```
+
+---
+
+# Slugs
+
+Los slugs usan `snake_case`.
+
+Ejemplos:
+
+```yaml
+slug: "pisistratus"
+slug: "greece_classical"
+slug: "birth_of_the_polis"
+```
+
+El slug no reemplaza al ID.
+
+El slug ayuda a rutas, búsquedas y lectura humana.
 
 ---
 
@@ -128,36 +162,22 @@ knowledge-level: 1
 
 ---
 
-# Idiomas
+# Nombres visibles
 
-El Canon puede tener nombres en español e inglés.
+El título visible puede usar idioma histórico o local.
 
-El ID no depende del idioma.
-
-El slug técnico debe mantenerse estable aunque cambie la traducción visible.
-
----
-
-# Títulos
-
-Los títulos editoriales deben ser claros, no genéricos.
-
-Mejor:
+Ejemplos:
 
 ```text
-El día que Atenas eligió recordar
+Pisístrato
+Atenas
+Imperio aqueménida
 ```
 
-Peor:
-
-```text
-Nodo 4
-```
+El archivo técnico no debe usar esos caracteres si generan ambigüedad.
 
 ---
 
 # Regla Suprema
 
-Un buen nombre debe ayudar a encontrar, mantener o recordar una pieza del universo.
-
-Si no ayuda a ninguna de esas tres cosas, debe cambiarse.
+Un nombre técnico debe permitir encontrar, importar y mantener una pieza del universo sin adivinar.

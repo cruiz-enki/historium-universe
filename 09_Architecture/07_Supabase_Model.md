@@ -10,13 +10,24 @@
 
 Este documento define el modelo conceptual de Supabase para Historium.
 
-GitHub contiene el Canon Oficial.
+No es SQL todavía.
 
-Supabase contiene el estado activo del producto y el progreso del usuario.
+Es el mapa de responsabilidades de datos para convertir el Canon en experiencia activa.
 
 ---
 
 # Separación crítica
+
+GitHub contiene el Canon Oficial.
+
+Supabase contiene:
+
+- contenido importado,
+- estado activo,
+- progreso de usuario,
+- desbloqueos del Museo,
+- recompensas,
+- perfiles.
 
 Supabase no decide qué es canon.
 
@@ -24,117 +35,155 @@ Supabase ejecuta el canon.
 
 ---
 
-# Tablas conceptuales
+# Modelo conceptual
 
-## canon_entities
+## entities
 
-Entidades importadas desde Markdown.
+Contiene entidades importadas desde `03_Knowledge`.
 
-Campos sugeridos:
+Ejemplos:
+
+- Character
+- City
+- Battle
+- Concept
+- Document
+- Artifact
+- Civilization
+
+Campos conceptuales:
 
 - `id`
 - `type`
-- `title`
 - `slug`
+- `title`
 - `status`
 - `version`
+- `canonical`
 - `museum_gallery`
 - `source_path`
 
 ---
 
-## canon_relationships
+## relationships
 
-Relaciones importadas del Knowledge Graph.
+Contiene conexiones tipificadas del Knowledge Graph.
 
-Campos sugeridos:
+Campos conceptuales:
 
-- `id`
 - `relationship_type`
 - `source_id`
 - `target_id`
 - `visibility`
 - `intensity`
+- `confidence`
 - `evidence_note`
-- `status`
+- `version`
 
 ---
 
 ## campaigns
 
-Campañas publicadas.
+Experiencias narrativas oficiales.
 
-Campos sugeridos:
-
-- `id`
-- `title`
-- `slug`
-- `period`
-- `status`
-- `version`
+Una campaña recorre una parte del grafo.
 
 ---
 
 ## chapters
 
-Capítulos dentro de campañas.
+Bloques narrativos dentro de campañas.
+
+Organizan el ritmo de aprendizaje.
 
 ---
 
 ## nodes
 
-Escenas jugables que actualizan Museo.
+Escenas jugables.
 
-Campos clave:
-
-- `id`
-- `campaign_id`
-- `chapter_id`
-- `node_number`
-- `xp`
-- `duration`
-- `museum_updates`
+Actualizan Museo, XP, relaciones visibles y progreso.
 
 ---
 
-## user_museum_entities
+## quizzes
 
-Estado del Museo por usuario y entidad.
+Preguntas asociadas a nodos, entidades o campañas.
 
-Campos clave:
-
-- `user_id`
-- `entity_id`
-- `discovery_state`
-- `knowledge_level`
-- `progress_percent`
-- `last_updated_at`
+Nunca deben existir como trivia aislada.
 
 ---
 
-## user_relationship_unlocks
+## curiosities
 
-Relaciones visibles para cada usuario.
+Piezas breves de descubrimiento.
 
-Permite relaciones ocultas desbloqueables.
+Pueden desbloquearse por nivel de Museo o por nodo.
+
+---
+
+## assets
+
+Imágenes, audio, video, mapas, modelos 3D y referencias visuales.
+
+Deben apuntar a entidades, nodos o campañas.
+
+---
+
+## museum_unlocks
+
+Reglas que indican qué se desbloquea, cuándo y por qué.
+
+Ejemplos:
+
+- nueva entidad,
+- nueva sección,
+- nueva relación,
+- nuevo asset,
+- nuevo badge.
+
+---
+
+## user_museum_progress
+
+Estado personal del Museo de cada usuario.
+
+Guarda progreso por entidad.
 
 ---
 
 ## user_node_progress
 
-Registra avance de nodos.
+Registra nodos completados, XP, respuestas y timestamps.
 
 ---
 
-# Importación
+## user_campaign_progress
 
-El importer debe guardar:
+Registra avance por campaña, capítulo y arco.
 
-- ruta fuente,
-- hash del archivo,
-- versión canon,
-- fecha de importación,
-- estado de validación.
+---
+
+## rewards
+
+Define recompensas visibles:
+
+- XP,
+- badges,
+- títulos,
+- reliquias,
+- desbloqueos,
+- certificados.
+
+---
+
+## profiles
+
+Información del jugador.
+
+No pertenece al Canon.
+
+Sirve para experiencia personalizada.
 
 ---
 

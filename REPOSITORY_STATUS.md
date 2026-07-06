@@ -36,7 +36,15 @@
 
 - `09_Architecture/` quedó completada como capa de arquitectura del universo.
 - `01_ID_System.md` documenta `03_Knowledge/REGISTRY.yaml` como fuente de verdad para IDs.
+- `02_Naming_Convention.md` define carpetas PascalCase plural para entidades y archivos `ID_EnglishName.md`.
+- `03_Frontmatter_Spec.md` define frontmatter universal y específico para Character, City, Battle, Concept, Document, Artifact, Campaign, Chapter y Node.
 - `04_Knowledge_Graph.md` define entidad, relación, campaña, nodo, Museo, taxonomía y reglas del grafo.
+- `05_Entity_Lifecycle.md` define estados `draft`, `research`, `review`, `official`, `published`, `deprecated` y `archived`.
+- `06_Versioning.md` define reglas `v1.0`, `v1.1`, `v1.2` y `v2.0`.
+- `07_Supabase_Model.md` define el modelo conceptual de entidades, relaciones, campañas, nodos, Museo y progreso de usuario.
+- `08_Import_Workflow.md` define el flujo Markdown → Validation → Parse frontmatter → Resolve IDs → Supabase → Relationships → Museum unlocks → App.
+- `09_Museum_Data_Model.md` define niveles 0 a 4 y campos de progreso.
+- `10_Architecture_Checklist.md` valida IDs, frontmatter, relaciones, Museo, naming, versionado, importación, fuentes, assets y consistencia narrativa.
 - `03_Knowledge/RELATIONSHIP_TYPES.md` quedó tipificado con relaciones oficiales en `snake_case`.
 - `03_Knowledge/REGISTRY.yaml` incluye prefijos oficiales para entidades, lugares, eventos, ideas, objetos y estructura de campaña.
 - Se documentó la separación GitHub Canon Oficial / Supabase estado activo y progreso de usuario.

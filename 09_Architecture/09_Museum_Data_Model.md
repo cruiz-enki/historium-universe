@@ -8,115 +8,151 @@
 
 # Propósito
 
-Este documento define cómo el Museo del jugador representa el progreso personal dentro del Knowledge Graph.
+Este documento define cómo el Museo Vivo representa progreso, conocimiento y desbloqueos.
 
-El Museo no es una colección de trofeos.
+El Museo no es una lista de coleccionables.
 
-Es la huella viva de lo que el jugador entiende.
-
----
-
-# Canon vs Museo personal
-
-El Canon contiene todo el universo.
-
-El Museo personal contiene lo que un jugador ha descubierto, estudiado, dominado o llevado a maestría.
+Es la memoria personal del jugador dentro del Knowledge Graph.
 
 ---
 
-# Estados de descubrimiento
+# Niveles oficiales
+
+## 0 — not_discovered
+
+La entidad existe en el Canon.
+
+El jugador aún no sabe que existe.
+
+---
+
+## 1 — discovered
+
+El jugador sabe que existe.
+
+Puede ver nombre, rareza, imagen básica y resumen corto.
+
+---
+
+## 2 — studied
+
+El jugador entiende su función histórica.
+
+Puede ver biografía, cronología, relaciones iniciales y campañas conectadas.
+
+---
+
+## 3 — mastered
+
+El jugador comprende importancia, debates, consecuencias e influencia.
+
+Puede ver relaciones avanzadas y contenido premium.
+
+---
+
+## 4 — mastery
+
+El jugador domina el tema.
+
+Puede desbloquear documentos, reconstrucciones, podcasts, mapas, comparaciones y certificado.
+
+---
+
+# Campos centrales
+
+## progress_percent
+
+Porcentaje de avance dentro de una entidad o colección.
+
+Debe ir de `0` a `100`.
+
+---
+
+## unlocked_sections
+
+Lista de secciones visibles para el jugador.
+
+Ejemplos:
+
+- summary
+- timeline
+- relationships
+- debates
+- sources
+- reconstructions
+
+---
+
+## entity_level
+
+Nivel numérico del 0 al 4.
+
+---
+
+## entity_state
+
+Estado legible:
 
 ```text
-locked
+not_discovered
 discovered
 studied
 mastered
-completed
+mastery
 ```
 
 ---
 
-# Niveles de conocimiento
+## museum_updates
 
-## Nivel 1 — Descubierto
+Cambios generados por nodos, campañas o recompensas.
 
-El jugador sabe que existe.
+Ejemplo:
 
----
-
-## Nivel 2 — Estudiado
-
-El jugador entiende su función histórica.
-
----
-
-## Nivel 3 — Dominado
-
-El jugador comprende conexiones, debates y consecuencias.
+```yaml
+museum_updates:
+  - entity_id: "CHAR_000001"
+    progress_delta: 12
+    unlocked_sections:
+      - "timeline"
+      - "relationships"
+```
 
 ---
 
-## Nivel 4 — Maestría
+## collection_progress
 
-El jugador accede a documentos, reconstrucciones, podcasts, mapas y comparaciones profundas.
+Progreso agregado por galería o colección.
+
+Ejemplos:
+
+- Characters
+- Cities
+- Battles
+- Greece Classical
+- Athenian Democracy
 
 ---
 
-# Modelo por entidad
+# Modelo por usuario y entidad
 
 ```yaml
 user_id: "user_123"
 entity_id: "CHAR_000001"
-state: "studied"
-knowledge_level: 2
+entity_level: 2
+entity_state: "studied"
 progress_percent: 46
-visible_relationships:
-  - "REL_EDGE_000001"
-hidden_relationships_remaining: 3
-unlocked_assets:
-  - "portrait"
+unlocked_sections:
+  - "summary"
   - "timeline"
-last_node_completed: "NODE_000008"
+  - "relationships"
+collection_progress:
+  Characters: 8
+  Greece_Classical: 21
 ```
-
----
-
-# Modelo por relación
-
-```yaml
-user_id: "user_123"
-source_id: "CHAR_000001"
-relationship_type: "governed"
-target_id: "CITY_000001"
-visible: true
-unlocked_by: "NODE_000008"
-```
-
----
-
-# Progreso global
-
-El Museo puede calcular:
-
-- porcentaje global,
-- avance por galería,
-- entidades descubiertas,
-- entidades en maestría,
-- rutas incompletas,
-- próximos descubrimientos.
-
----
-
-# Recompensa
-
-La recompensa principal no es un objeto.
-
-Es nueva comprensión.
-
-Los objetos, badges y XP existen para hacer visible ese crecimiento.
 
 ---
 
 # Regla Suprema
 
-El Museo debe hacer sentir que el jugador está construyendo conocimiento, no llenando una lista.
+El Museo debe hacer visible el crecimiento del conocimiento, no solo el consumo de contenido.

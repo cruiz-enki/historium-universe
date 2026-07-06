@@ -8,126 +8,133 @@
 
 # Propósito
 
-Este documento define cómo el Canon en Markdown se convierte en datos activos.
+Este documento define cómo el Canon en Markdown se convierte en datos activos en Supabase.
 
-Importar no es copiar.
+Importar no es copiar archivos.
 
-Importar es validar, transformar y proteger el universo.
+Importar es validar el universo antes de hacerlo jugable.
 
 ---
 
-# Flujo general
+# Flujo oficial
 
 ```text
-Markdown Canon
-  ↓
-Frontmatter validation
-  ↓
-ID validation
-  ↓
-Relationship validation
-  ↓
-Museum mapping
-  ↓
-Supabase upsert
-  ↓
-Import report
+Markdown
+↓
+Validation
+↓
+Parse frontmatter
+↓
+Resolve IDs
+↓
+Create/update Supabase records
+↓
+Create relationships
+↓
+Create museum unlock rules
+↓
+Publish to app
 ```
 
 ---
 
-# Paso 1 — Lectura
+# 1. Markdown
 
-El importer lee archivos Markdown canónicos.
+El importer lee archivos Markdown del Canon Oficial.
 
-Debe ignorar:
+Solo procesa archivos importables.
 
-- borradores sin frontmatter,
-- documentos editoriales no importables,
-- archivos archivados,
-- carpetas de referencia sin entidad.
+Documentos editoriales puros pueden quedar fuera.
 
 ---
 
-# Paso 2 — Validación de ID
+# 2. Validation
 
-Cada ID debe:
+Valida:
 
-- usar prefijo oficial,
-- tener seis dígitos,
-- existir como valor asignado,
-- no duplicarse,
-- no contradecir `REGISTRY.yaml`.
-
----
-
-# Paso 3 — Validación de frontmatter
-
-El frontmatter debe incluir campos mínimos según tipo.
-
-Si falta un campo obligatorio, el importer se detiene.
+- nombre de archivo,
+- ubicación,
+- extensión,
+- frontmatter,
+- estado,
+- versión,
+- tipo oficial.
 
 ---
 
-# Paso 4 — Validación de relaciones
+# 3. Parse frontmatter
 
-Cada relación debe:
+Extrae datos estructurados.
 
-- usar tipo oficial,
-- apuntar a IDs existentes,
-- respetar source_types y target_types,
-- no duplicar relaciones equivalentes,
-- tener visibilidad válida.
+Si el frontmatter no existe o está roto, el flujo se detiene.
 
 ---
 
-# Paso 5 — Mapeo de Museo
+# 4. Resolve IDs
 
-Toda entidad importable debe mapearse a una galería del Museo.
+Verifica que:
 
-Todo nodo debe declarar actualizaciones del Museo.
-
-Sin Museo, no hay importación.
+- el ID usa prefijo oficial,
+- el formato es `PREFIX_000001`,
+- no hay duplicados,
+- las relaciones apuntan a IDs existentes,
+- `REGISTRY.yaml` no fue contradicho.
 
 ---
 
-# Paso 6 — Upsert
+# 5. Create/update Supabase records
 
-Supabase debe actualizar por ID.
+Crea o actualiza registros por ID.
 
 Nunca por nombre.
 
-Si el ID existe, se actualiza versión y contenido.
-
-Si no existe, se crea.
+Nunca por slug.
 
 ---
 
-# Paso 7 — Reporte
+# 6. Create relationships
 
-Cada importación debe generar reporte con:
+Crea relaciones tipificadas.
 
-- archivos procesados,
-- entidades creadas,
-- entidades actualizadas,
-- relaciones creadas,
-- errores,
-- advertencias,
-- versión de importación.
+Valida `source_types`, `target_types` e inversas sugeridas.
+
+---
+
+# 7. Create museum unlock rules
+
+Genera reglas de desbloqueo:
+
+- entidad descubierta,
+- sección estudiada,
+- relación visible,
+- asset desbloqueado,
+- recompensa entregada.
+
+---
+
+# 8. Publish to app
+
+Solo se publica contenido:
+
+- válido,
+- oficial,
+- importado,
+- sin errores bloqueantes.
 
 ---
 
 # Errores bloqueantes
 
 - ID duplicado.
-- Relación hacia entidad inexistente.
 - Tipo desconocido.
-- Nodo sin actualización de Museo.
-- Campaña sin estructura.
-- Frontmatter inválido.
+- Relación inválida.
+- Frontmatter incompleto.
+- Nodo sin `museum_updates`.
+- Campaña sin capítulos.
+- Asset roto.
 
 ---
 
 # Regla Suprema
 
-El importer debe fallar antes de contaminar el universo activo.
+El importer debe detenerse antes de contaminar el universo activo.

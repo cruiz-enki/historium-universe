@@ -8,78 +8,112 @@
 
 # Propósito
 
-Este checklist valida que una pieza nueva respete la arquitectura del universo Historium.
+Este checklist valida si una pieza nueva puede entrar al Canon Oficial y al flujo de importación.
 
-Debe usarse antes de declarar contenido como canon.
+Debe usarse antes de declarar contenido como `official` o `published`.
 
 ---
 
-# ID
+# IDs
 
 - [ ] El ID viene de `03_Knowledge/REGISTRY.yaml`.
 - [ ] Usa formato `PREFIX_000001`.
 - [ ] El prefijo existe.
 - [ ] El ID no fue usado antes.
 - [ ] `next_id` fue incrementado después de asignar.
-
----
-
-# Naming
-
-- [ ] El título visible es claro.
-- [ ] El slug técnico usa `snake_case`.
-- [ ] El nombre no depende del idioma.
-- [ ] El archivo está en la carpeta correcta.
+- [ ] El ID no depende de idioma, nombre o campaña.
 
 ---
 
 # Frontmatter
 
-- [ ] Tiene campos obligatorios.
-- [ ] El tipo es oficial.
-- [ ] El estado editorial es válido.
-- [ ] La versión está definida.
-- [ ] La galería del Museo está definida si aplica.
+- [ ] Incluye todos los campos universales.
+- [ ] Incluye campos específicos del tipo.
+- [ ] `type` coincide con la taxonomía oficial.
+- [ ] `status` es válido.
+- [ ] `canonical` está definido.
+- [ ] `version` está definido.
 
 ---
 
-# Knowledge Graph
+# Relaciones
 
-- [ ] Tiene relaciones útiles.
-- [ ] Las relaciones usan IDs.
-- [ ] No duplica relaciones existentes.
-- [ ] No usa relaciones ambiguas sin justificación.
-- [ ] Respeta source_types y target_types.
+- [ ] Las relaciones usan tipos oficiales.
+- [ ] Las relaciones apuntan a IDs.
+- [ ] No hay duplicados.
+- [ ] No hay relaciones ambiguas.
+- [ ] Cada relación ayuda a entender algo.
+- [ ] Source y target respetan tipos permitidos.
 
 ---
 
 # Museo
 
-- [ ] Hace crecer una parte del Museo.
-- [ ] Define nivel o progreso.
-- [ ] Tiene desbloqueos claros si aplica.
-- [ ] Puede mostrarse al jugador con sentido.
+- [ ] La pieza alimenta una galería del Museo.
+- [ ] Define nivel, estado o progreso.
+- [ ] Los nodos incluyen `museum_updates`.
+- [ ] Los desbloqueos son claros.
+- [ ] El jugador puede entender qué ganó.
 
 ---
 
-# Supabase
+# Naming
 
-- [ ] Puede importarse sin transformación manual.
+- [ ] La carpeta respeta convención.
+- [ ] El archivo usa `ID_EnglishName.md` si es entidad.
+- [ ] El archivo no tiene acentos.
+- [ ] El archivo no tiene espacios.
+- [ ] El slug usa `snake_case`.
+
+---
+
+# Versionado
+
+- [ ] La pieza tiene versión.
+- [ ] La versión sigue reglas `v1.0`, `v1.1`, `v1.2`, `v2.0`.
+- [ ] Cambios importantes tienen changelog.
+- [ ] El ID se mantiene estable entre versiones.
+
+---
+
+# Importación
+
+- [ ] Puede importarse sin intervención manual.
 - [ ] No mezcla Canon con progreso de usuario.
-- [ ] Tiene versión rastreable.
-- [ ] Puede actualizarse por ID.
+- [ ] No depende de nombres visibles.
+- [ ] Puede crear o actualizar registros por ID.
+- [ ] No genera errores bloqueantes.
 
 ---
 
-# Tono
+# Fuentes
 
-- [ ] Mantiene voz Historium.
+- [ ] Tiene fuentes suficientes para su estado.
+- [ ] Las fuentes están en `sources`.
+- [ ] Las afirmaciones fuertes tienen respaldo.
+- [ ] Las dudas están marcadas como debate o pendiente.
+
+---
+
+# Assets
+
+- [ ] Los assets están referenciados.
+- [ ] Los assets aumentan comprensión.
+- [ ] No son decorativos sin propósito.
+- [ ] Tienen relación con entidad, campaña o nodo.
+
+---
+
+# Consistencia narrativa
+
+- [ ] Respeta voz Historium.
 - [ ] No suena a Wikipedia.
 - [ ] No suena a curso genérico.
-- [ ] Tiene claridad premium.
+- [ ] Tiene propósito narrativo.
+- [ ] Conecta con el Museo Vivo.
 
 ---
 
 # Regla Suprema
 
-Si una pieza no puede conectarse al Museo Vivo y al Knowledge Graph, no está lista.
+Si una pieza no puede conectarse a IDs, frontmatter, relaciones, Museo e importación, no está lista.

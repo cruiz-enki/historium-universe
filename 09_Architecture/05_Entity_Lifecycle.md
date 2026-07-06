@@ -8,9 +8,9 @@
 
 # Propósito
 
-Este documento define cómo nace, madura, se valida y evoluciona una entidad dentro de Historium.
+Este documento define los estados oficiales por los que pasa una entidad, campaña, nodo o pieza importable dentro de Historium.
 
-Una entidad no es una ficha.
+Una entidad no es una ficha estática.
 
 Es una pieza viva del Museo.
 
@@ -18,141 +18,148 @@ Es una pieza viva del Museo.
 
 # Estados oficiales
 
-## idea
+## draft
 
-Existe como intención editorial.
+La pieza existe como borrador.
 
-Todavía no tiene ID.
+Puede tener estructura incompleta.
 
----
+Puede no tener fuentes finales.
 
-## drafted
+Puede cambiar de forma profunda.
 
-Ya tiene ID asignado desde `REGISTRY.yaml`.
+Puede avanzar cuando:
 
-Tiene estructura mínima.
-
-Puede cambiar mucho.
-
----
-
-## reviewed
-
-Fue revisada por narrativa, conocimiento y arquitectura.
-
-Sus relaciones principales son válidas.
+- tiene ID asignado,
+- tiene frontmatter mínimo,
+- tiene tipo oficial,
+- tiene propósito claro.
 
 ---
 
-## canon
+## research
 
-Forma parte del Canon Oficial.
+La pieza está en investigación histórica.
 
-Puede importarse a Supabase.
+Aquí se reúnen fuentes, contexto, dudas y posibles relaciones.
 
-Puede aparecer en campañas y Museo.
+Puede avanzar cuando:
+
+- tiene fuentes mínimas,
+- no duplica otra entidad,
+- tiene relaciones tentativas,
+- se entiende su lugar en el Museo.
 
 ---
 
-## expanded
+## review
 
-Recibió nuevas capas de conocimiento.
+La pieza está lista para revisión editorial, narrativa y arquitectónica.
 
-Mantiene el mismo ID.
+Puede avanzar cuando:
+
+- el contenido es claro,
+- el frontmatter es válido,
+- las relaciones usan IDs,
+- el naming respeta convención,
+- el Museo queda definido,
+- las fuentes son aceptables.
+
+---
+
+## official
+
+La pieza forma parte del Canon Oficial en GitHub.
+
+Todavía puede no estar publicada en la app.
+
+Puede avanzar cuando:
+
+- fue aprobada editorialmente,
+- pasó validación de importer,
+- no rompe relaciones existentes,
+- tiene versión oficial.
+
+---
+
+## published
+
+La pieza está disponible en la experiencia activa.
+
+Existe en Supabase como contenido importado.
+
+Puede aparecer en campañas, nodos, Museo, recomendaciones y progreso del usuario.
+
+Puede avanzar a nueva versión cuando:
+
+- se expande,
+- se corrige,
+- se conecta con nuevas entidades,
+- una campaña nueva la reutiliza.
 
 ---
 
 ## deprecated
 
-Fue reemplazada por una entidad mejor.
+La pieza fue reemplazada por otra mejor.
 
-No se elimina.
+No se borra.
 
 No se reutiliza su ID.
+
+Debe indicar qué pieza la reemplaza.
+
+Puede avanzar cuando:
+
+- se decide archivarla,
+- ya no debe aparecer en producción,
+- el importer la conserva solo como historial.
 
 ---
 
 ## archived
 
-Se conserva por historial editorial.
+La pieza se conserva por historia editorial.
 
-No se muestra al jugador salvo uso interno.
+No aparece en la app.
+
+No alimenta nuevas recomendaciones.
+
+Su ID queda reservado para siempre.
 
 ---
 
-# Flujo
+# Flujo estándar
 
 ```text
-idea
+draft
   ↓
-drafted
+research
   ↓
-reviewed
+review
   ↓
-canon
+official
   ↓
-expanded
+published
 ```
 
 Ramas posibles:
 
 ```text
-canon → deprecated
-canon → archived
+official → deprecated → archived
+published → deprecated → archived
 ```
 
 ---
 
-# Asignación de ID
+# Regla de avance
 
-El ID se asigna al pasar de `idea` a `drafted`.
+Ninguna pieza avanza de estado por entusiasmo.
 
-Debe venir de `03_Knowledge/REGISTRY.yaml`.
-
-Después de asignarlo, se incrementa `next_id`.
-
----
-
-# Validación antes de canon
-
-Una entidad no puede ser `canon` si:
-
-- no tiene ID válido,
-- no tiene tipo oficial,
-- no tiene resumen corto,
-- no tiene galería de Museo,
-- no tiene relaciones mínimas,
-- duplica una entidad existente,
-- contradice una entidad canon sin nota editorial,
-- no puede importarse.
-
----
-
-# Expansión
-
-Expandir una entidad no crea una entidad nueva.
-
-Ejemplo:
-
-Pisístrato puede aparecer en una campaña de Atenas, otra de tiranía y otra de democracia temprana.
-
-Sigue siendo el mismo `CHAR_000001`.
-
----
-
-# Fusión
-
-Si dos entidades representan lo mismo:
-
-- una se mantiene como principal,
-- la otra pasa a `deprecated`,
-- se registra la razón,
-- ambos IDs quedan reservados.
+Avanza porque cumple criterios verificables.
 
 ---
 
 # Regla Suprema
 
-Una entidad puede evolucionar durante años.
-
-Su ID nunca.
+El lifecycle protege al Museo Vivo de contenido incompleto, duplicado o débil.
