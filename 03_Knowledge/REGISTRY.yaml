@@ -1,0 +1,131 @@
+# HISTORIUM — ID REGISTRY
+#
+# Fuente de verdad para asignar nuevos IDs canónicos.
+#
+# Reglas:
+# - Nunca reutilizar IDs.
+# - Nunca reducir next_id.
+# - Cada entidad nueva debe tomar el ID indicado por next_id.
+# - Después de crear una entidad, incrementar next_id.
+# - Usar formato PREFIX_000001.
+
+registry:
+  version: "1.0"
+  status: "official"
+  format: "PREFIX_000001"
+  digit_count: 6
+
+  rules:
+    never_reuse_ids: true
+    never_decrease_next_id: true
+    use_current_next_id: true
+    increment_after_creation: true
+
+  prefixes:
+    characters:
+      prefix: CHAR
+      next_id: 1
+
+    cities:
+      prefix: CITY
+      next_id: 1
+
+    locations:
+      prefix: LOC
+      next_id: 1
+
+    regions:
+      prefix: REG
+      next_id: 1
+
+    monuments:
+      prefix: MON
+      next_id: 1
+
+    civilizations:
+      prefix: CIV
+      next_id: 1
+
+    empires:
+      prefix: EMP
+      next_id: 1
+
+    battles:
+      prefix: BAT
+      next_id: 1
+
+    wars:
+      prefix: WAR
+      next_id: 1
+
+    events:
+      prefix: EVT
+      next_id: 1
+
+    concepts:
+      prefix: CON
+      next_id: 1
+
+    religions:
+      prefix: REL
+      next_id: 1
+
+    technologies:
+      prefix: TECH
+      next_id: 1
+
+    documents:
+      prefix: DOC
+      next_id: 1
+
+    artifacts:
+      prefix: ART
+      next_id: 1
+
+    biographies:
+      prefix: BIO
+      next_id: 1
+
+    organizations:
+      prefix: ORG
+      next_id: 1
+
+    dynasties:
+      prefix: DYN
+      next_id: 1
+
+    languages:
+      prefix: LANG
+      next_id: 1
+
+    currencies:
+      prefix: CUR
+      next_id: 1
+
+    laws:
+      prefix: LAW
+      next_id: 1
+
+    routes:
+      prefix: ROUTE
+      next_id: 1
+
+    myths:
+      prefix: MYTH
+      next_id: 1
+
+    campaigns:
+      prefix: CAMP
+      next_id: 1
+
+    arcs:
+      prefix: ARC
+      next_id: 1
+
+    chapters:
+      prefix: CH
+      next_id: 1
+
+    nodes:
+      prefix: NODE
+      next_id: 1
