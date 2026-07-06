@@ -29,7 +29,7 @@ El importer conecta ambos mundos sin mezclarlos.
 # Documentos
 
 - `Markdown_Format.md`
-- `Frontmatter_Spec.md`
+- `../02_Specifications/Frontmatter_Spec.md`
 - `Import_Validation.md`
 - `Supabase_Mapping.md`
 
