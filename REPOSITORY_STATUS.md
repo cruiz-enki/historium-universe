@@ -76,7 +76,18 @@ Historium-Universe/
   07_Assets/
   08_Templates/
   09_Architecture/
+  10_AI/
 ```
+
+---
+
+# Fase de producción con IA
+
+- `10_AI/` quedó creada como capa oficial para producción asistida por inteligencia artificial.
+- Define principios, pipeline de generación, prompt style guide, reglas de nodos, curiosidades, quizzes, imagen, audio, video y fact checking.
+- Incluye reglas de extracción de entidades y relaciones para respetar `REGISTRY.yaml` y `RELATIONSHIP_TYPES.md`.
+- Define formato Markdown, validación, localización, prohibiciones, roles de modelos y producción en lote.
+- La IA queda subordinada al Canon Oficial, al Knowledge Graph, al Museo Vivo y a revisión humana.
 
 ---
 

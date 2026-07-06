@@ -48,6 +48,7 @@ Es un universo persistente donde cada campaña cuenta una historia y cada entida
 - `07_Assets/` — materiales fuente y referencias.
 - `08_Templates/` — plantillas oficiales de producción.
 - `09_Architecture/` — arquitectura del Knowledge Graph, IDs, importer, Supabase y Museo.
+- `10_AI/` — reglas para generación, validación, prompts, assets y workflows de IA.
 
 ---
 

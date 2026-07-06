@@ -14,6 +14,13 @@ Supabase contiene el progreso del usuario.
 
 El importer conecta ambos mundos sin mezclarlos.
 
+Debe respetar los formatos de salida definidos en `../10_AI/`, especialmente:
+
+- `12_Markdown_Output_Format.md`
+- `13_Validation_Rules.md`
+- `10_Entity_Extraction_Rules.md`
+- `11_Relationship_Extraction_Rules.md`
+
 ---
 
 # Principios
