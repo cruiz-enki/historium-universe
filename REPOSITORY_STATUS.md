@@ -1,7 +1,7 @@
 # HISTORIUM — REPOSITORY STATUS
 
 **Fecha:** 2026-07-05  
-**Estado:** Fundación completada localmente
+**Estado:** Fundación reorganizada y sincronizada en GitHub
 
 ---
 
@@ -18,6 +18,17 @@
 - Carpeta `08_Templates/` con plantillas oficiales.
 - README principal mejorado.
 - README internos para carpetas principales.
+
+---
+
+# Qué se reorganizó
+
+- `02_Campaigns/` fue reemplazada por `04_Campaigns/`.
+- `04_Templates/` fue reemplazada por `08_Templates/`.
+- `02_Specifications/` quedó como carpeta oficial para todos los archivos `*_Spec.md`.
+- `07_Assets/` quedó creada con `README.md`.
+- `README.md` principal refleja la arquitectura final:
+  `00_Biblia_Editorial`, `01_Game_Design`, `02_Specifications`, `03_Knowledge`, `04_Campaigns`, `05_Prompts`, `06_Importer`, `07_Assets`, `08_Templates`.
 
 ---
 
