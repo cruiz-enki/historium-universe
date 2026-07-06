@@ -34,6 +34,18 @@ registry:
       prefix: LOC
       next_id: 1
 
+    rivers:
+      prefix: RIV
+      next_id: 1
+
+    mountains:
+      prefix: MTN
+      next_id: 1
+
+    seas:
+      prefix: SEA
+      next_id: 1
+
     regions:
       prefix: REG
       next_id: 1
@@ -50,12 +62,44 @@ registry:
       prefix: EMP
       next_id: 1
 
+    kingdoms:
+      prefix: KING
+      next_id: 1
+
+    republics:
+      prefix: REP
+      next_id: 1
+
+    city_states:
+      prefix: CSTA
+      next_id: 1
+
     battles:
       prefix: BAT
       next_id: 1
 
     wars:
       prefix: WAR
+      next_id: 1
+
+    sieges:
+      prefix: SIE
+      next_id: 1
+
+    treaties:
+      prefix: TREAT
+      next_id: 1
+
+    revolutions:
+      prefix: REV
+      next_id: 1
+
+    discoveries:
+      prefix: DISC
+      next_id: 1
+
+    expeditions:
+      prefix: EXP
       next_id: 1
 
     events:
@@ -70,6 +114,10 @@ registry:
       prefix: REL
       next_id: 1
 
+    philosophies:
+      prefix: PHIL
+      next_id: 1
+
     technologies:
       prefix: TECH
       next_id: 1
@@ -80,6 +128,10 @@ registry:
 
     artifacts:
       prefix: ART
+      next_id: 1
+
+    historical_objects:
+      prefix: HOBJ
       next_id: 1
 
     biographies:

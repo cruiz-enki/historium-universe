@@ -1,4 +1,3 @@
-# ID System
 # HISTORIUM — ID SYSTEM
 
 **Versión:** 1.0
@@ -146,6 +145,30 @@ No ciudades completas.
 
 ---
 
+## Ríos
+
+```
+RIV
+```
+
+---
+
+## Montañas
+
+```
+MTN
+```
+
+---
+
+## Mares
+
+```
+SEA
+```
+
+---
+
 ## Regiones
 
 ```
@@ -178,6 +201,30 @@ EMP
 
 ---
 
+## Reinos
+
+```
+KING
+```
+
+---
+
+## Repúblicas
+
+```
+REP
+```
+
+---
+
+## Ciudades-Estado
+
+```
+CSTA
+```
+
+---
+
 ## Batallas
 
 ```
@@ -190,6 +237,46 @@ BAT
 
 ```
 WAR
+```
+
+---
+
+## Asedios
+
+```
+SIE
+```
+
+---
+
+## Tratados
+
+```
+TREAT
+```
+
+---
+
+## Revoluciones
+
+```
+REV
+```
+
+---
+
+## Descubrimientos
+
+```
+DISC
+```
+
+---
+
+## Expediciones
+
+```
+EXP
 ```
 
 ---
@@ -218,6 +305,14 @@ REL
 
 ---
 
+## Filosofías
+
+```
+PHIL
+```
+
+---
+
 ## Tecnologías
 
 ```
@@ -238,6 +333,14 @@ DOC
 
 ```
 ART
+```
+
+---
+
+## Objetos Históricos
+
+```
+HOBJ
 ```
 
 ---

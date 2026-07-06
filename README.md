@@ -47,6 +47,7 @@ Es un universo persistente donde cada campaña cuenta una historia y cada entida
 - `06_Importer/` — reglas para convertir Markdown canónico en datos importables.
 - `07_Assets/` — materiales fuente y referencias.
 - `08_Templates/` — plantillas oficiales de producción.
+- `09_Architecture/` — arquitectura del Knowledge Graph, IDs, importer, Supabase y Museo.
 
 ---
 
